@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/tracker.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--Adding calendar-->
+    <section class="tracker">
+	<div class="section-heading">
+		<h3 class="main-heading"><i class="fa-regular fa-user"></i><span class="tracker-head">TRACK MY TURN</span>
+        <br>
+    <span class="sub-head">Patient's Personalised Tracker</span></h3>
+	</div>
+
+    <!--Tracker section 1 starts !-->
+	<div class="tracker-elements-1">
+		<div class="calendar-section">
+            <div class="calendar">
+	        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=MTliNGQ2NTk2ZTM5MTMxMWVkZmVhZThjNWYyOTdlMmQwYWZlMjc5NzIyZGJjM2Q3NjBhNmMwMDRiM2ZiMmNjMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23F4511E&color=%2333B679" style="border:solid 1px #777" frameborder="0" scrolling="no" class="calendar-style"></iframe>
+       </div>
+
+       <div class="legend">
+        <span class="initial-head">N/A - </span><i class="fa-solid fa-circle" style="color: rgb(219, 3, 3);"></i><span class="red" style="color: #000;">Doctor Unavailable</span>
+        <i class="fa-solid fa-circle" style="color: rgb(158, 10, 158); padding-left: 1rem;"></i><span class="purple" style="color: #000;">Personal Leave</span>
+       </div>
+    </div>
+
+	   <!--Waiting List & Doctor Availability-->
+	<div id="waitlist-container">
+        <h3 class="wait-head">Check Patient Queue Before Your Visit</h3>
+
+        <form class="waitingList-form">
+            <label for="Date">Enter Date of Visit:</label>
+            <input type="date" name="enter date" id="Date">
+            <br>
+            <span class="time-section">
+                <label for="Time">Timings Available:</label>
+            <select name="time" id="Time">
+                <option value="" disabled selected>Select the time slot</option>
+                <option value="12-2">12PM - 2PM</option>
+                <option value="7-9">7PM - 9PM</option>
+            </select>
+            </span>
+
+            <br>
+            
+            <label for="doctor">Doctor's Name</label>
+            <select name="Doctors-name" id="doc">
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+
+			<br>
+            <input type="submit" value="Get the Waiting List" id="submit-btn">
+        </form>
+        <hr>
+        <!-- Display of waiting list-->
+        <div class="list" >
+            <h5>LOADING BOOKED TIME SLOTS...... </h5>
+        <ul id="waiting-list">
+            <!-- Waiting list will come here-->
+        </ul>
+        </div>
+		<!--Redirect to Appointment Page-->
+		<a href="appoinment.html" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
+        </div>
+	</div>
+
+    <!--Tracker section1 ends !-->
+    <hr>
+	<br>
+    <br>
+
+    <div class="flap">
+				<span class="flap-head">Patient Satisfaction & Visit Metrics</span>
+                <i class="fa-solid fa-chart-simple"></i>
+			</div>
+	<div class="tracker-elements-2">
+		<!-- Line Chart for tracking Monthly Patient Visits -->
+	    <div id="chart-container-1">
+			<h5 class="bar-head"><span class="tracker-head-2">Monthly Patient Visits</span><i class="fa-regular fa-hospital" style="color: #1f3560;"></i></h5>
+            <canvas id="salesChart"></canvas>
+        </div>
+
+		<!--Pie Chart to show Customer Satisfaction-->
+		<div id="chart-container-2">
+			<h5 class="donut-head"><span class="tracker-head-2">Patient's Review</span><i class="fa-solid fa-star" style="color: #1f3560;"></i></h5>
+			<canvas id="customerSatisfactionChart" width="400" height="400"></canvas>
+		</div>
+	</div>
+</section>
+
+<div class="tracker-elements-3">
+        <div class="counter-container">
+				<i class="fa-regular fa-face-smile fa-3x icon-outline" style="padding-top: 2rem ;"></i>
+				<div id="happy-patients-counter" class="counter" style="font-size: 2rem; font-weight: bold;"></div>
+				<h3><span style="padding-right: 0.5rem;" class="happy-patients">Happy Patients This Year</span><i class="fa-solid fa-thumbtack"></i></h3>
+			</div>
+    </div>
+
+<!--Footer-->
+
+<!--Javascript CODE ------->
+<!-- Line Chart -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+    var ctx = document.getElementById('salesChart').getContext('2d');
+    var salesChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Monthly Patient Visits in 2024',
+                data: [50, 80, 63, 85, 62, 70, 65, 72, 68, 56, 70],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+				barThickness:20
+            }]
+        },
+        options: {
+			plugins:{
+				legend:{
+					display:false
+				}
+			},
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<!--Doughnut Chart-->
+<script>
+    var ctx = document.getElementById('customerSatisfactionChart').getContext('2d');
+    var browserUsageChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['5⭐', '4⭐', '3⭐', '2⭐', '1⭐'],
+            datasets: [{
+                data: [60, 25, 10, 4, 1],
+                backgroundColor: ['#e12454', 'green', '#F4B400', '#4285F4', '#DB4437'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+					display:true,
+                    position: 'right',
+					labels:{
+						color:'#000',
+						font:{
+							family:'Arial',
+							size:'13px',
+							weight:'700'
+						},
+					}
+                },
+            },
+            cutout: '80%' // This creates the hole in the center, making it a donut chart
+        }
+    });
+</script>
+
+<!--Patients Treated Per Year Counter-->
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+    const counter = document.getElementById('happy-patients-counter');
+    const duration = 3000; // Duration of the animation in milliseconds
+    const targetCount = 600; // Target number of happy patients
+    const increment = targetCount / (duration / 60); // Calculate increment per frame
+    let currentCount = 0;
+    let observer;
+
+    function updateCounter() {
+        if (currentCount < targetCount) {
+            currentCount += increment;
+            counter.textContent = Math.ceil(currentCount);
+            requestAnimationFrame(updateCounter);
+        } else {
+            counter.textContent = `${targetCount}+`;
+        }
+    }
+
+    function onIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                updateCounter();
+                observer.disconnect(); // Stop observing once the counter starts
+            }
+        });
+    }
+
+    observer = new IntersectionObserver(onIntersection, { threshold: 0.5 });
+    observer.observe(counter);
+});
+</script>
+
+<script>document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.waitingList-form');
+    const waitingList = document.getElementById('waiting-list');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const date = document.getElementById('Date').value;
+        const time = document.getElementById('Time').value;
+
+        console.log(`Selected Date: ${date}`);
+        console.log(`Selected Time: ${time}`);
+
+        // Simulate fetching waiting list data
+        const waitingListData = {
+            '12-2': [
+                { time: '12:10 PM' },
+                { time: '12:30 PM' },
+                { time: '01:00 PM' }
+            ],
+            '7-9': [
+                { time: '07:05 PM' },
+                { time: '07:25 PM' },
+                { time: '07:45 PM' },
+				{ time:'08:00 PM'}
+            ]
+        };
+
+        waitingList.innerHTML = '';
+        if (waitingListData[time]) {
+            waitingListData[time].forEach(entry => {
+                const li = document.createElement('li');
+                li.textContent = `${entry.time}`;
+                waitingList.appendChild(li);
+            });
+        } else {
+            const li = document.createElement('li');
+            li.textContent = 'No waiting list available for the selected time slot.';
+            waitingList.appendChild(li);
+        }
+    });
+});
+</script>
+</body>
+</html>
