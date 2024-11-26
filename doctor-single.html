@@ -202,7 +202,7 @@
 
 <!--Adding calendar-->
 
-<section class="tracker">
+<!-- <section class="tracker">
 	<div class="">
 		<h3 class="main-heading"><i class="fa-regular fa-user"></i><span class="tracker-head">Patients's Personalised Tracker</span></h3>
 	</div>
@@ -211,8 +211,8 @@
 	    <iframe src="https://calendar.google.com/calendar/embed?src=19b4d6596e391311edfeae8c5f297e2d0afe279722dbc3d760a6c004b3fb2cc2%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="400" height="300" frameborder="0" scrolling="no"></iframe>
        </div>
 
-	   <!--Waiting List & Doctor Availability-->
-	<div id="waitlist-container">
+	   Waiting List & Doctor Availability-->
+	<!-- <div id="waitlist-container">
         <h4 class="wait-head">Check Patient Queue Before Your Visit</h4>
 
         <form class="waitingList-form">
@@ -224,22 +224,22 @@
                 <option value="" disabled selected>Select the time slot</option>
                 <option value="12-2">12PM - 2PM</option>
                 <option value="7-9">7PM - 9PM</option>
-            </select>
+            </select> -->
 
-			<br>
+			<!-- <br>
             <input type="submit" value="Get the Waiting List" id="submit-btn">
         </form>
 
 		<hr>
-        <!-- Display of waiting list-->
+        
         <h5>Fetching the Waiting List.... </h5>
         <ul id="waiting-list">
-            <!-- Waiting list will come here-->
+            
         </ul>
 
 		<hr>
 
-		<!--Redirect to Appointment Page-->
+		
 		<a href="appoinment.html" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
         </div>
 	</div>
@@ -249,7 +249,7 @@
 
 
 	<div class="tracker-elements-2">
-		<!--heading-->
+		
 		<div class="flap-container">
 			<div class="flap">
 				Patient Satisfaction <br>& <br> Visit Metrics
@@ -261,19 +261,18 @@
 			</div>
 		</div>
 
-		<!-- Line Chart for tracking Monthly Patient Visits -->
 	    <div id="chart-container-1">
 			<h5 class="bar-head"><span class="tracker-head">Monthly Patient Visits</span><i class="fa-regular fa-hospital"></i></h5>
             <canvas id="salesChart"></canvas>
-        </div>
+        </div> 
 
-		<!--Pie Chart to show Customer Satisfaction-->
-		<div id="chart-container-2">
+		Pie Chart to show Customer Satisfaction-->
+		<!-- <div id="chart-container-2">
 			<h5 class="donut-head"><span class="tracker-head">Patient's Review</span><i class="fa-regular fa-star"></i></h5>
 			<canvas id="customerSatisfactionChart" width="400" height="400"></canvas>
 		</div>
 	</div>
-</section>
+</section>  -->
 
 
 <section class="section doctor-skills">
@@ -454,149 +453,7 @@
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
 	
-	<!-- Line Chart -->
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script>
-    var ctx = document.getElementById('salesChart').getContext('2d');
-    var salesChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: 'Monthly Patient Visits in 2024',
-                data: [50, 80, 63, 85, 62, 70, 65, 72, 68, 56, 70],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-				barThickness:20
-            }]
-        },
-        options: {
-			plugins:{
-				legend:{
-					display:false
-				}
-			},
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-</script>
-
-<!--Doughnut Chart-->
-<script>
-    var ctx = document.getElementById('customerSatisfactionChart').getContext('2d');
-    var browserUsageChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['5⭐', '4⭐', '3⭐', '2⭐', '1⭐'],
-            datasets: [{
-                data: [60, 25, 10, 4, 1],
-                backgroundColor: ['#e12454', 'green', '#F4B400', '#4285F4', '#DB4437'],
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-					display:true,
-                    position: 'right',
-					labels:{
-						color:'#000',
-						font:{
-							family:'Arial',
-							size:'13px',
-							weight:'700'
-						},
-					}
-                },
-            },
-            cutout: '80%' // This creates the hole in the center, making it a donut chart
-        }
-    });
-</script>
-
-<!--Patients Treated Per Year Counter-->
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-    const counter = document.getElementById('happy-patients-counter');
-    const duration = 3000; // Duration of the animation in milliseconds
-    const targetCount = 600; // Target number of happy patients
-    const increment = targetCount / (duration / 60); // Calculate increment per frame
-    let currentCount = 0;
-    let observer;
-
-    function updateCounter() {
-        if (currentCount < targetCount) {
-            currentCount += increment;
-            counter.textContent = Math.ceil(currentCount);
-            requestAnimationFrame(updateCounter);
-        } else {
-            counter.textContent = `${targetCount}+`;
-        }
-    }
-
-    function onIntersection(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                updateCounter();
-                observer.disconnect(); // Stop observing once the counter starts
-            }
-        });
-    }
-
-    observer = new IntersectionObserver(onIntersection, { threshold: 0.5 });
-    observer.observe(counter);
-});
-</script>
-
-<script>document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.waitingList-form');
-    const waitingList = document.getElementById('waiting-list');
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        const date = document.getElementById('Date').value;
-        const time = document.getElementById('Time').value;
-
-        console.log(`Selected Date: ${date}`);
-        console.log(`Selected Time: ${time}`);
-
-        // Simulate fetching waiting list data
-        const waitingListData = {
-            '12-2': [
-                { name: 'Anita Mukherjee', time: '12:10 PM' },
-                { name: 'Vidushi Gupta', time: '12:30 PM' },
-                { name: 'Anjali Singh', time: '01:00 PM' }
-            ],
-            '7-9': [
-                { name: 'Seema Aggarwal', time: '07:05 PM' },
-                { name: 'Mayank Singh', time: '07:25 PM' },
-                { name: 'Garima Gupta', time: '07:45 PM' },
-				{name: 'Rohit Verma', time:'08:00 PM'}
-            ]
-        };
-
-        waitingList.innerHTML = '';
-
-        if (waitingListData[time]) {
-            waitingListData[time].forEach(entry => {
-                const li = document.createElement('li');
-                li.textContent = `${entry.time} - ${entry.name}`;
-                waitingList.appendChild(li);
-            });
-        } else {
-            const li = document.createElement('li');
-            li.textContent = 'No waiting list available for the selected time slot.';
-            waitingList.appendChild(li);
-        }
-    });
-});
-</script>
+	
 
   </body>
   </html>
