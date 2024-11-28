@@ -9,7 +9,7 @@
   font-weight: 400;
   font-style: normal;
   /* border: 2px solid grey; */
-  background-color: rgb(247, 251, 252);
+  background-color: rgb(238, 251, 254);
   padding: 1rem;
   overflow-x: hidden;
 }
@@ -98,78 +98,6 @@ canvas {
   width: 30%;
 }
 
-@media(max-width:900px) and (min-width:500px) {
-  .tracker-elements-1{
-    flex-direction: column;
-  }
-  #waitlist-container{
-    margin: auto;
-    width: 80%;
-  }
-  .legend{
-    width: 50%;
-    margin: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .tracker-elements-2{
-    flex-direction: column;
-  }
-  #chart-container-1{
-    margin: auto;
-    max-width: 400px;
-  }
-  #chart-container-2{
-    margin: auto;
-    margin-top: 2rem;
-    max-width: 400px;
-  }
-  .flap-head{
-    font-size: 1.5rem;
-  }
-  .counter-container{
-    width: 100%;
-  }
-}
-
-/*Good till 330px */
-@media(max-width:500px) and (min-width:300px) {
-  .tracker-elements-1{
-    flex-direction: column;
-  }
-  #waitlist-container{
-    margin: auto;
-    width: 80%;
-  }
-  .calendar-style{
-    height: 400px;
-    width:300px;
-  }
-  .tracker-elements-2{
-    flex-direction: column;
-  }
-  #chart-container-1{
-    margin: auto;
-    max-width: 400px;
-  }
-  #chart-container-2{
-    margin: auto;
-    margin-top: 2rem;
-    max-width: 400px;
-  }
-  .flap-head{
-    font-size: 1.2rem;
-    line-height: 1rem;
-  }
-  .counter-container{
-    width: 100%;
-  }
-  .happy-patients{
-    font-size: 1.3rem;
-  }
-}
-
-
 .sub-head{
   text-align: center;
   font-size: 1.4rem;
@@ -187,7 +115,6 @@ canvas {
   justify-content: space-evenly;
   text-align: center;
   font-size: 1.6rem;
-  background-color: #fff;
   color: #fff;
   cursor: pointer;
 }
@@ -195,8 +122,8 @@ canvas {
 .flap{
   /* border: 2px solid green; */
   height: 3rem;
-  background-color: rgb(247, 251, 252);
-  color: #1f3560;
+  background-color: rgb(238, 251, 254) !important;
+  color: #1f3560 !important;
   font-size: 1.8rem;
   font-weight: 800;
   font-family: "Ubuntu", sans-serif;
@@ -208,6 +135,7 @@ canvas {
 
 .flap-head{
   padding-right: 0.5rem;
+  /* background-color: rgb(247, 251, 252); */
 }
 
 @keyframes flap{
@@ -237,7 +165,7 @@ canvas {
 }
 
 #submit-btn{
-  border:2px solid #000;
+  border:2px solid #000 !important;
   border-radius: 10px;
   background-color: transparent;
   height: 2rem;
@@ -300,6 +228,7 @@ canvas {
 } */
 .initial-head{
   color: #000;
+  padding-left: 1rem;
 }
 
 .tracker-elements-3{
@@ -309,3 +238,80 @@ canvas {
 }
 
 /* 650px tracker  elemenst -2 */
+
+@media(max-width:900px) and (min-width:500px) {
+  .tracker-elements-1{
+    flex-direction: column;
+  }
+  #waitlist-container{
+    margin: auto;
+    width: 80%;
+  }
+  .legend{
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .tracker-elements-2{
+    flex-direction: column;
+  }
+  #chart-container-1{
+    margin: auto;
+    max-width: 400px;
+  }
+  #chart-container-2{
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 400px;
+  }
+  .flap-head{
+    font-size: 1.5rem;
+    background-color: rgb(247, 251, 252);
+  }
+  .counter-container{
+    width: 100%;
+  }
+  .initial-head{
+    padding-left: 1.2rem;
+  }
+}
+
+/*Good till 330px */
+@media(max-width:500px) and (min-width:300px) {
+  .tracker-elements-1{
+    flex-direction: column;
+  }
+  #waitlist-container{
+    margin: auto;
+    width: 80%;
+  }
+  .calendar-style{
+    height: 400px;
+    width:300px;
+  }
+  .tracker-elements-2{
+    flex-direction: column;
+  }
+  #chart-container-1{
+    margin: auto;
+    max-width: 400px;
+  }
+  #chart-container-2{
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 400px;
+  }
+  .flap-head{
+    font-size: 1.2rem;
+    line-height: 1rem;
+  }
+  .counter-container{
+    width: 100%;
+  }
+  .happy-patients{
+    font-size: 1.3rem;
+  }
+}
+
+

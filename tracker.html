@@ -27,11 +27,13 @@
 	<div class="tracker-elements-1">
 		<div class="calendar-section">
             <div class="calendar">
-	        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=MTliNGQ2NTk2ZTM5MTMxMWVkZmVhZThjNWYyOTdlMmQwYWZlMjc5NzIyZGJjM2Q3NjBhNmMwMDRiM2ZiMmNjMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23F4511E&color=%2333B679" style="border:solid 1px #777" frameborder="0" scrolling="no" class="calendar-style"></iframe>
+	        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=MTliNGQ2NTk2ZTM5MTMxMWVkZmVhZThjNWYyOTdlMmQwYWZlMjc5NzIyZGJjM2Q3NjBhNmMwMDRiM2ZiMmNjMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23F4511E&color=%2333B679" style="border-width:0" class="calendar-style" frameborder="0" scrolling="no"></iframe>
        </div>
 
        <div class="legend">
-        <span class="initial-head">N/A - </span><i class="fa-solid fa-circle" style="color: rgb(219, 3, 3);"></i><span class="red" style="color: #000;">Doctor Unavailable</span>
+        <i class="fa-solid fa-circle" style="color:green; padding-left: 1rem;"></i><span class="purple" style="color: #000;">Doctor Available</span>
+        <i class="fa-solid fa-circle" style="color: rgb(219, 3, 3);"></i><span class="red" style="color: #000;">Doctor Unavailable</span>
+        <br>
         <i class="fa-solid fa-circle" style="color: rgb(158, 10, 158); padding-left: 1rem;"></i><span class="purple" style="color: #000;">Personal Leave</span>
        </div>
     </div>
@@ -55,13 +57,15 @@
 
             <br>
             
-            <label for="doctor">Doctor's Name</label>
+            <label for="doctor">Doctor's Name: </label>
             <select name="Doctors-name" id="doc">
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="" disabled selected>Select Doctor</option>
+                <option value="">Dr. Brahm Datt Pathak</option>
+                <option value="">Dr. Meenal Sinha</option>
+                <option value="">Dr. Amit Trivedi</option>
+                <option value="">Dr. Anchal Sahu</option>
+                <option value="">Dr. Anurag Kashyap</option>
+                <option value="">Dr. Anushka Verma</option>
             </select>
 
 			<br>
@@ -86,9 +90,8 @@
     <br>
 
     <div class="flap">
-				<span class="flap-head">Patient Satisfaction & Visit Metrics</span>
-                <i class="fa-solid fa-chart-simple"></i>
-			</div>
+		<span class="flap-head">Patient Satisfaction & Visit Metrics</span><i class="fa-solid fa-chart-simple"></i>
+    </div>
 	<div class="tracker-elements-2">
 		<!-- Line Chart for tracking Monthly Patient Visits -->
 	    <div id="chart-container-1">
