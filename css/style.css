@@ -86,6 +86,22 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 7rem 0px;
 }
 
+.tracker-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e83e8c;  /* Pink color */
+  color: white;  /* Text color */
+  border-radius: 5px;  /* Rounded corners */
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.tracker-btn:hover {
+  background-color: #d63384;  /* Slightly darker pink on hover */
+  color: white;
+}
+
+
 .btn {
   display: inline-block;
   font-size: 14px;
