@@ -100,7 +100,7 @@ canvas {
 
 .sub-head{
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #1f3560;
 }
 
@@ -149,6 +149,17 @@ canvas {
 
 .icon-outline{
   color: #e12454;
+}
+
+#waiting-list li { 
+  margin-bottom: 5px;  
+} 
+.info-line, .estimated-line { 
+  margin-top: 5px;  
+  margin-bottom: 5px; 
+  color: #000;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 .tracker-elements-2{
@@ -284,7 +295,7 @@ canvas {
   }
   #waitlist-container{
     margin: auto;
-    width: 80%;
+    width: 90% !important;
   }
   .calendar-style{
     height: 400px;
@@ -299,12 +310,13 @@ canvas {
   }
   #chart-container-2{
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 2rem !important;
     max-width: 400px;
   }
   .flap-head{
-    font-size: 1.2rem;
-    line-height: 1rem;
+    background-color: rgb(238, 251, 254);
+    font-size: 1.3rem !important;
+    line-height: 1rem !important;
   }
   .counter-container{
     width: 100%;
