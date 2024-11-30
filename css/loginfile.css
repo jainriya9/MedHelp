@@ -7,11 +7,11 @@ body {
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
     /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
-    background-image: url('https://wallpapercave.com/wp/wp9283374.jpg');
+    background-image: url('../images/loginbg1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    background-attachment: fixed;
   }
   
   .main {
@@ -35,37 +35,49 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 20px; /* Added padding for spacing */
+    /* padding: 20px; Added padding for spacing */
     box-sizing: border-box;
+    /* margin-bottom: 10px; Adjusted margin for spacing */
+    transform: translateY(-20px);
   }
 
   .signup h4 {
-    font-size: 2.5em; /* Slightly larger font */
-    margin: 20px auto; /* Center margin and compact spacing */
-    font-weight: bold; /* Keep the bold look */
-    text-align: center; /* Center the text */
-    background: linear-gradient(45deg, #ff6f61, #6a89cc); /* Gradient text */
-    -webkit-background-clip: text; /* Clip gradient to text */
-    -webkit-text-fill-color: transparent; /* Make background visible */
+    font-size: 2.5em; 
+    margin: 20px auto; 
+    font-weight: bold; 
+    text-align: center;
+    background: linear-gradient(45deg, #fc2512, #062974); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
     cursor: pointer;
-    transition: transform 0.5s ease, color 0.3s ease; /* Smooth hover effects */
-    font-family: 'Poppins', sans-serif; /* Use a modern font */
-    text-transform: uppercase; /* Transform text to uppercase */
-    letter-spacing: 2px; /* Add spacing between letters */
-    background-clip: text; /* Standard property for compatibility */
-    -webkit-background-clip: text; /* WebKit-specific version for older browsers */
+    transition: transform 0.5s ease, color 0.3s ease; 
+    font-family: 'Poppins', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    align-items: center; /* Vertically aligns items */
+    justify-content: center; /* Horizontally centers items */
+     /* Space between logo and text */
+    line-height: 1.2; 
+    
 
 }
 .signup h4 .logo {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 200px;
+  height: auto;
+  margin-right: 0px;
+  margin-top: 5px;
+  transform: translateY(10px);
 }
 
 
 .signup h4:hover {
     transform: scale(1.1) rotate(0deg); /* Grow and tilt on hover */
     color: #fff; /* Add fallback color on hover */
+}
+.signup h4 span {
+  transform: translateY(-5px); /* Moves "MedHelp" slightly up */
 }
 
   
@@ -83,12 +95,12 @@ body {
   }
   
   input {
-    width: 80%; /* Increased width for better alignment */
-    height: 28px; /* Adjusted height */
+    width: 80%; 
+    height: 28px; 
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 15px auto; /* Reduced margin for compact layout */
+    margin: 15px auto;
     padding: 12px;
     border: none;
     outline: none;
@@ -97,7 +109,7 @@ body {
   
   select {
     width: 80%;
-    height: 40px; /* Adjusted height for consistency */
+    height: 40px; 
     background: #e0dede;
     margin: 15px auto;
     padding: 12px;
@@ -116,7 +128,8 @@ body {
     background: #26085f;
     font-size: 1em;
     font-weight: bold;
-    margin-top: 30px;
+    /* margin-top: 10px; Reduced top margin */
+    /* margin-bottom: 15px; */
     outline: none;
     border: none;
     border-radius: 5px;
@@ -134,7 +147,7 @@ body {
     border-radius: 60% / 10%;
     transform: translateY(-180px);
     transition: .8s ease-in-out;
-    margin-top: 7rem;
+    margin-top: 6rem;
   }
   
   .login label {
@@ -155,7 +168,5 @@ body {
   
   #chk:checked ~ .signup label {
     transform: scale(.6);
-    
-   
   }
   
