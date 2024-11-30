@@ -563,10 +563,14 @@
     }
   }
   
-  .nav-link:hover, .nav-link:focus {
+ 
+
+  a:hover {
     color: #1B71A1;
-    text-decoration: none;
+    text-decoration: underline;
   }
+
+  
   
   .nav-link.disabled {
     color: #7B7A8B;
